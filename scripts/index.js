@@ -16,8 +16,8 @@ const htmlTaskContent = ({ id, title, description, type, url }) => `
         <div class="card-header d-flex gap-2 justify-content-end task__card_header">
             <button type="button" class="btn btn-outline-info mr-2" name=${id}><i class="fas fa-pencil-alt"
                     name=${id} onclick="editTask.apply(this, arguments)"></i></button>
-            <button type="button" class="btn btn-outline-danger mr-2" name=${id}><i class="fas fa-trash-alt"
-                    name=${id} onclick="deleteTask.apply(this, arguments)"></i></button>
+            <button type="button" class="btn btn-outline-danger mr-2" name= "${id}" onclick="deleteTask.apply(this, arguments)"><i class="fas fa-trash-alt"
+                    name= "${id}" ></i></button>
         </div>
         <div class="card-body">
         <!-- becz img is optional so lets provide a default one -->
@@ -133,8 +133,7 @@ const deleteTask = (e) => {
     console.log(type) // here it will give i and button tag
 
     const removeTask = state.taskList.filter(({ id }) => id !== targetID);
-    // console.log(removeTask)
-
+    console.log(removeTask)
     console.log(state.taskList.filter(({ id }) => id !== targetID));
 
 
@@ -144,7 +143,10 @@ const deleteTask = (e) => {
 
     if (type === "I") {
         //moving towards parent to delete card
-        // console.log(e.target.parentNode.parentNode.parentNode.parentNode.parentNode)
+        console.log(e.target.parentNode.parentNode.parentNode.parentNode.parentNode)
+        // console.log(e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.parentNode.parentNode)
+        // );
+        console.log(e.target.parentNode.parentNode.parentNode.parentNode)
         return e.target.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.parentNode.parentNode);
     }
     // if type is Button or anything else
